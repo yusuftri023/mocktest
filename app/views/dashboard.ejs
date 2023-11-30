@@ -1,0 +1,41 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"
+></script>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+</style>
+<body onloaded="table()">
+  <h1>DASHBOARD</h1>
+  <p>User Name : <b><%= user.user_name %></b></p>
+  <p>Email : <b><%= user.email %></b></p>
+  <div id="p"></div>
+  <table id="todolist">
+    <tr>
+      <th>Task</th>
+
+      <th>Status</th>
+      <th>Created</th>
+    </tr>
+  </table>
+</body>
+<script>
+  function table() {
+    const task_name = "<%= user.task_name %>".split(",");
+    const task_status = "<%= user.task_status %>".split(",");
+    const created = "<%= user.created %>".split(",");
+    for (let i = 0; i <= task_name.length - 1; ++i) {
+      let table = document.getElementById("todolist");
+      let tablerow = table.insertRow(i + 1);
+      tablerow.insertCell(0).innerHTML = `${task_name[i]}`;
+      tablerow.insertCell(1).innerHTML = `${task_status[i]}`;
+      tablerow.insertCell(2).innerHTML = `${created[i]}`;
+    }
+  }
+  $("#body").ready(table());
+</script>
