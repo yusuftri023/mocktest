@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost"
+      "url": "https://busy-teal-scorpion-robe.cyclic.app"
     }
   ],
   "tags": [
@@ -26,9 +26,7 @@
   "paths": {
     "/register": {
       "post": {
-        "tags": [
-          "Auth (Token Based Authentication)"
-        ],
+        "tags": ["Auth (Token Based Authentication)"],
         "summary": "Create a new account for the website",
         "description": "Create a new account for the website",
         "operationId": "registerForm",
@@ -176,9 +174,7 @@
     },
     "/login": {
       "post": {
-        "tags": [
-          "Auth (Token Based Authentication)"
-        ],
+        "tags": ["Auth (Token Based Authentication)"],
         "summary": "Login to authenticate and create json web token",
         "description": "Login to authenticate and create json web token",
         "operationId": "loginAccount",
@@ -299,9 +295,7 @@
     },
     "/logout": {
       "get": {
-        "tags": [
-          "Auth (Token Based Authentication)"
-        ],
+        "tags": ["Auth (Token Based Authentication)"],
         "summary": "Logout by clearing cookies from your browser",
         "description": "Login to authenticate and create json web token",
         "operationId": "logoutAccount",
@@ -335,9 +329,7 @@
     },
     "/whoami": {
       "get": {
-        "tags": [
-          "Auth (Token Based Authentication)"
-        ],
+        "tags": ["Auth (Token Based Authentication)"],
         "summary": "Check the data of the current authorized user",
         "description": "Check the data of the current authorized user",
         "operationId": "whoami",
@@ -449,9 +441,7 @@
     },
     "/users/task": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Get User to do list",
         "description": "Get User to do list",
         "operationId": "getUsers",
@@ -528,9 +518,7 @@
         ]
       },
       "post": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Add a new task for the user",
         "description": "Add a new task for the user",
         "operationId": "postUserTask",
