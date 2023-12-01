@@ -56,4 +56,21 @@ module.exports = {
       },
     });
   },
+  updateStatus: async function (id, task_status) {
+    return await prisma.task.update({
+      where: {
+        id: id,
+      },
+      data: {
+        task_status: task_status,
+      },
+    });
+  },
+  deleteTask: async function (id) {
+    return await prisma.task.delete({
+      where: {
+        id: id,
+      },
+    });
+  },
 };
