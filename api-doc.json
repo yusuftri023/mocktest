@@ -187,11 +187,11 @@
                 "properties": {
                   "password": {
                     "type": "string",
-                    "example": 12345678
+                    "example": 123456
                   },
                   "email": {
                     "type": "string",
-                    "example": "yusufhaha@gmail.com"
+                    "example": "demo@gmail.com"
                   }
                 }
               }
@@ -219,47 +219,9 @@
                       "type": "string",
                       "example": "Login success"
                     },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "accountData": {
-                          "type": "object",
-                          "properties": {
-                            "account_id": {
-                              "type": "integer",
-                              "example": 25
-                            },
-                            "account_number": {
-                              "type": "integer",
-                              "example": 25
-                            },
-                            "balance": {
-                              "type": "integer",
-                              "example": 1000000
-                            },
-                            "user_id": {
-                              "type": "integer",
-                              "example": 5
-                            },
-                            "email": {
-                              "type": "string",
-                              "example": "yusufhaha@gmail.com"
-                            },
-                            "createAt": {
-                              "type": "string",
-                              "example": "2023-11-07T14:08:35.000Z"
-                            },
-                            "updatedAt": {
-                              "type": "string",
-                              "example": "2023-11-07T07:08:35.253Z"
-                            }
-                          }
-                        },
-                        "token": {
-                          "type": "string",
-                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjozNywiYWNjb3VudF9udW1iZXIiOjM3LCJiYWxhbmNlIjoiMTAwMDAwIiwidXNlcl9pZCI6NSwiZW1haWwiOiJqYW1AZ21haWwuY29tIiwiY3JlYXRlQXQiOiIyMDIzLTExLTA3VDE0OjA4OjM1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTA3VDA3OjA4OjM1LjI1M1oiLCJpYXQiOjE2OTkzNTA5MTEsImV4cCI6MTY5OTM1NDUxMX0.lbzDZdEdNOceKx-e82zT5A8lW15b4OrN_iD3-UwE-RU"
-                        }
-                      }
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjozNywiYWNjb3VudF9udW1iZXIiOjM3LCJiYWxhbmNlIjoiMTAwMDAwIiwidXNlcl9pZCI6NSwiZW1haWwiOiJqYW1AZ21haWwuY29tIiwiY3JlYXRlQXQiOiIyMDIzLTExLTA3VDE0OjA4OjM1LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTExLTA3VDA3OjA4OjM1LjI1M1oiLCJpYXQiOjE2OTkzNTA5MTEsImV4cCI6MTY5OTM1NDUxMX0.lbzDZdEdNOceKx-e82zT5A8lW15b4OrN_iD3-UwE-RU"
                     }
                   }
                 }
@@ -300,7 +262,7 @@
         "description": "Login to authenticate and create json web token",
         "operationId": "logoutAccount",
         "responses": {
-          "201": {
+          "200": {
             "description": "Successful operation",
             "content": {
               "application/json": {
@@ -311,13 +273,9 @@
                       "type": "string",
                       "example": "Success"
                     },
-                    "code": {
-                      "type": "string",
-                      "example": 201
-                    },
                     "message": {
                       "type": "string",
-                      "example": "Logout success"
+                      "example": "You are now logged out"
                     }
                   }
                 }
@@ -530,7 +488,7 @@
                 "properties": {
                   "email": {
                     "type": "string",
-                    "example": "hendra@gmail.com"
+                    "example": "demo@gmail.com"
                   },
                   "task_name": {
                     "type": "string",
@@ -564,20 +522,251 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "User data succesfully added to the database"
+                      "example": "New task added"
                     },
                     "data": {
                       "type": "object",
                       "properties": {
-                        "user_id": {
+                        "id": {
                           "type": "integer",
                           "example": 1
                         },
-                        "user_name": {
+                        "task_name": {
                           "type": "string",
-                          "example": "Hendra Gunawan"
+                          "example": "Ngoding Mock Task"
+                        },
+                        "task_status": {
+                          "type": "string",
+                          "example": "Completed"
+                        },
+                        "poster_id": {
+                          "type": "integer",
+                          "example": 1
                         }
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Fail"
+                    },
+                    "code": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Bad request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Fail"
+                    },
+                    "code": {
+                      "type": "integer",
+                      "example": 409
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/task/{task_id}": {
+      "put": {
+        "tags": ["Users"],
+        "summary": "update task status for the user",
+        "description": "update task status for the user",
+        "operationId": "putUserTask",
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "description": "task_id",
+            "required": true,
+            "explode": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "email",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "task_status": {
+                    "type": "string",
+                    "example": "Completed"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Task status updated"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "task_name": {
+                          "type": "string",
+                          "example": "Ngoding Mock Task"
+                        },
+                        "task_status": {
+                          "type": "string",
+                          "example": "Completed"
+                        },
+                        "poster_id": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Fail"
+                    },
+                    "code": {
+                      "type": "integer",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Bad request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Fail"
+                    },
+                    "code": {
+                      "type": "integer",
+                      "example": 409
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "summary": "Delete task for the user",
+        "description": "Delete a task for the user",
+        "operationId": "deleteUserTask",
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "description": "task_id",
+            "required": true,
+            "explode": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Task deleted"
                     }
                   }
                 }
