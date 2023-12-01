@@ -10,7 +10,7 @@ module.exports = {
   async login(req, res, next) {
     try {
       const { email, password } = req.body;
-      console.log(+password);
+
       if (password.length !== 6 || +password == "NaN") {
         return res.status(404).json({
           status: "fail",

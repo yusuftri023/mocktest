@@ -22,7 +22,7 @@ model Task{
   task_name String
   task_status String
   poster_id Int
-  created DateTime @default(dbgenerated("CURRENT_TIMESTAMP(0)")) @db.Time(0)
+  created DateTime @default(dbgenerated("CURRENT_TIMESTAMP(0)")) @db.Date()
   User User @relation(fields: [poster_id], references: [id])
 
 }
