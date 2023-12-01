@@ -31,7 +31,7 @@ module.exports = {
   putUserTask: async function (req, res) {
     const { task_status } = req.body;
     const { task_id } = req.params;
-    const result = await updateStatus(task_id, task_status);
+    const result = await updateStatus(+task_id, task_status);
     return res.status(200).json({
       status: "success",
       code: 200,
@@ -41,7 +41,7 @@ module.exports = {
   },
   deleteUserTask: async function (req, res) {
     const { task_id } = req.params;
-    await deleteTask(task_id);
+    await deleteTask(+task_id);
     return res.status(200).json({
       status: "success",
       code: 200,
