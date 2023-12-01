@@ -29,7 +29,7 @@ module.exports = {
           .status(201)
           .json({
             status: "success",
-            code: 200,
+            code: 201,
             message: "Anda berhasil login",
             token: token,
           });
